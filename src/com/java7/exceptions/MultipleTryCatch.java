@@ -1,4 +1,4 @@
-package com.java7.classes;
+package com.java7.exceptions;
 
 import java.io.File;
 import java.io.FileReader;
@@ -37,7 +37,7 @@ public class MultipleTryCatch {
 
 		File f = new File("/Users/praveen/p1.txt");
 
-		// below statement is creting the resource within the try statement
+		// below statement is creating the resource within the try statement
 		// which will be closed automatically calling the closable interface
 		// close method as Reader implements Closable.
 		try (FileReader fReader = new FileReader(f)) {
