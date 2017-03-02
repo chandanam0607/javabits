@@ -8,7 +8,7 @@ import java.io.IOException;
  * 
  * Example for Exception handling
  * 1) Auto close Exception handling -- resource with in the try statement
- * 2) Multiple exceptions in single catch block.
+ * 2) Multiple exceptions in single catch block .
  * 
  * 
  * @author praveen

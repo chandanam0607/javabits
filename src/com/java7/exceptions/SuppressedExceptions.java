@@ -1,5 +1,14 @@
 package com.java7.exceptions;
 
+/**
+ * 
+ * Exceptions can be suppressed.
+ * 
+ * ARM- Automatic Resource Management using the Closable interface.
+ * 
+ * @author praveen
+ *
+ */
 class MyPrinterResource implements AutoCloseable {
 	
 	public void print(String str) {
@@ -39,9 +48,11 @@ public class SuppressedExceptions {
 	}
 
 	public void printNullWithARM() throws Exception {
+		// ARM closes the resource created within try
 		try (MyPrinterResource printer = new MyPrinterResource()) {
 			printer.print(null);
 		}
+
 	}
 
 	public static void main(String[] args) {
