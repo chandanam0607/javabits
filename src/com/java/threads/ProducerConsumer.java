@@ -11,26 +11,33 @@ class MessageBox {
 		String msg = null;
 		if (messageList.isEmpty()) {
 			try {
-				this.wait(500);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		} else {
-			msg = messageList.get(0);
-			messageList.remove(0);
-		}
-		this.notifyAll();
-		return msg;
-	}
-
-	public void addMessage(String msg) {
-		if (!messageList.isEmpty()) {
-			try {
+				System.out.println("Consumer waiting...");
 				this.wait();
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
 		}
+
+		msg = messageList.get(0);
+		messageList.remove(0);
+
+		this.notifyAll();
+
+		// System.out.println("Consuming::" + msg);
+		return msg;
+	}
+
+	public void addMessage(String msg) {
+		
+		if (!messageList.isEmpty()) {
+			try {
+				System.out.println("Producer waiting...");
+				this.wait();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		// System.out.println("Producing::" + msg);
 		messageList.add(msg);
 		this.notifyAll();
 	}
@@ -49,14 +56,8 @@ class Producer implements Runnable {
 	public void run() {
 		for (int i = 0; i < 10; i++) {
 			synchronized (messageBox) {
-				System.out.println("Producing::" + "Msg:" + i);
 				messageBox.addMessage("Msg:" + i);
-			}
-
-			try {
-				Thread.sleep(200);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
+				System.out.println("Produced Msg:" + i);
 			}
 		}
 		System.out.println("Producer end...");
@@ -75,12 +76,12 @@ class Consumer implements Runnable {
 
 	public void run() {
 		String msg;
-		for (int i = 0; i < 20; i++) {
-			System.out.println("looping in consumer" + i);
+		for (int i = 0; i < 10; i++) {
+			// System.out.println("looping in consumer" + i);
 			synchronized (messageBox) {
 				msg = messageBox.getMessage();
+				System.out.println("Consuming::" + msg);
 			}
-			System.out.println("Consuming::" + msg);
 		}
 		System.out.println("Consumer end...");
 	}
