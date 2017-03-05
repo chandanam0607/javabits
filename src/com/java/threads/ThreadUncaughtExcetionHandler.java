@@ -2,7 +2,15 @@ package com.java.threads;
 
 import java.lang.Thread.UncaughtExceptionHandler;
 
-public class ThradUncaughtExcetionHandler {
+/**
+ * 
+ * Exceptions from the thread which are not caught can be caught using the
+ * Thread.setDefaultUncaughtExceptionHandler static method
+ * 
+ * @author praveen
+ *
+ */
+public class ThreadUncaughtExcetionHandler {
 
 	public static void main(String[] args) {
 		
@@ -22,6 +30,8 @@ public class ThradUncaughtExcetionHandler {
 		});
 
 		thread.start();
+
+		System.out.println("Main method end...");
 
 
 	}

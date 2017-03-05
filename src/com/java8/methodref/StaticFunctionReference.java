@@ -33,13 +33,8 @@ public class StaticFunctionReference {
 
 	public static void main(String[] args) {
 
-		Function<Integer, Integer> staticMethodRef = CommandImpl::square; // method
-		System.out.println("Static Method reference(Integer):" + staticMethodRef.apply(2));
-
-		Function<Long, Long> longStaticMethodRef = CommandImpl::square; // method
-		System.out.println("Static Method reference(Long):" + longStaticMethodRef.apply(3L));
-
-		Command cmd = x -> x * x * x; // method
+		// lambda expr for cube of value
+		Command cmd = x -> x * x * x;
 		System.out.println("Static Method reference(Interface):" + cmd.execute(2));
 
 		// method reference only cares about the parameters and return types and
@@ -57,6 +52,12 @@ public class StaticFunctionReference {
 
 		Function<Integer, Integer> lambdaExpr = x -> x * x; // lambda expression
 		System.out.println("Lambda Function Expression:" + lambdaExpr.apply(2));
+
+		Function<Integer, Integer> staticMethodRef = CommandImpl::square; // method
+		System.out.println("Static Method reference(Integer):" + staticMethodRef.apply(2));
+
+		Function<Long, Long> longStaticMethodRef = CommandImpl::square; // method
+		System.out.println("Static Method reference(Long):" + longStaticMethodRef.apply(3L));
 
 		BiFunction<Integer, Integer, Integer> addExpr = (x, y) -> x + y; // lambda
 		System.out.println("Lambda BiFunction Expression:" + addExpr.apply(2, 3));

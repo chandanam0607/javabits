@@ -7,7 +7,7 @@ package com.java8.methodref;
  * 2) Static method reference. 
  * 3) Non Static reference.
  * 
- * @author praveen
+ * @author Praveen
  *
  */
 

@@ -9,7 +9,7 @@ import java.util.concurrent.Future;
 
 /**
  * 
- * Callable Tasks
+ * Callable Tasks using lambda function.
  * 
  * @author praveen
  *
@@ -26,7 +26,7 @@ public class ExecutorServiceImpl {
 
 		List<Callable<String>> tasks = Arrays.asList(
 				() -> {
-			Thread.sleep(1000);
+					Thread.sleep(1000);
 					return "Executed Thread1";
 				},
 				() -> {
@@ -39,6 +39,7 @@ public class ExecutorServiceImpl {
 			// Main thread blocks here till the results get populated for
 			// InvokeALl. Use submit for executing threads without blocking
 			// in the above statement.
+			
 			System.out.println("Threads execution started ");
 			executor.shutdown();
 
