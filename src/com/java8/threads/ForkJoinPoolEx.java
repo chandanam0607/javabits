@@ -1,4 +1,4 @@
-package com.java7.threads;
+package com.java8.threads;
 
 import java.io.File;
 import java.util.ArrayList;

@@ -23,7 +23,6 @@ class MessageBox {
 
 		this.notifyAll();
 
-		// System.out.println("Consuming::" + msg);
 		return msg;
 	}
 
@@ -37,7 +36,6 @@ class MessageBox {
 				e.printStackTrace();
 			}
 		}
-		// System.out.println("Producing::" + msg);
 		messageList.add(msg);
 		this.notifyAll();
 	}
@@ -75,12 +73,11 @@ class Consumer implements Runnable {
 	}
 
 	public void run() {
-		String msg;
+		String msg1;
 		for (int i = 0; i < 10; i++) {
-			// System.out.println("looping in consumer" + i);
 			synchronized (messageBox) {
-				msg = messageBox.getMessage();
-				System.out.println("Consuming::" + msg);
+				msg1 = messageBox.getMessage();
+				System.out.println("Consuming::" + msg1);
 			}
 		}
 		System.out.println("Consumer end...");
